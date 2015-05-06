@@ -304,9 +304,8 @@ public class Requests implements Runnable
                     peer.clearOnline();
                     
                     for (int i=0; i<split.length; i++)
-                    {   peer.addOnline(getPeerTable(split[i]));
-                        online.add(getPeerTable(split[i]));
-                    }
+                        peer.addOnline(getPeerTable(split[i]));
+
                     answer = new Answer(socket, online, peer);
                     answer.answer(check);
                     setText(message);
