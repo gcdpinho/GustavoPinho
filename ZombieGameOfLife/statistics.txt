@@ -1,0 +1,8 @@
+Geração 1:
+Memória utilizada: 8854992 B
+Tempo gasto: 19831992 ns
+
+Geração 2:
+Memória utilizada: 9017568 B
+Tempo gasto: 5156870 ns
+
