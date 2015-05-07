@@ -5,7 +5,9 @@
  */
 package Interface;
 
-import CG.CG;
+import CG.T1;
+import CG.T2;
+import java.util.Timer;
 import javax.swing.JOptionPane;
 
 /**
@@ -187,7 +189,11 @@ public class Interface extends javax.swing.JFrame
         y0 = jFormattedTextField5.getText();
         
         try
-        {   CG CG = new CG (Integer.parseInt(n), Integer.parseInt(s), Integer.parseInt(r), Integer.parseInt(x0), Integer.parseInt(y0), steps, time);
+        {   //T1 t1 = new T1 (Integer.parseInt(n), Integer.parseInt(s), Integer.parseInt(r), Integer.parseInt(x0), Integer.parseInt(y0), steps, time);
+                
+                T2 t2 = new T2(time);
+                Timer t = new Timer();
+                t.scheduleAtFixedRate(t2,0,time);
             
             this.setVisible(false);
         }

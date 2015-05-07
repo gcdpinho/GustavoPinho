@@ -17,7 +17,7 @@ import java.util.Date;
  * 
  * @author gustavopinho
  */
-public class CG extends Frame
+public class T1 extends Frame
 {   
     private int x0, y0;
     private Dimension screen;
@@ -42,18 +42,18 @@ public class CG extends Frame
      * 
      * @param time int - Corresponde ao sustain desejado para a animação.
      */
-    public CG(int n, int s, int r, int x0, int y0, int steps, int time)
+    public T1(int n, int s, int r, int x0, int y0, int steps, int time)
     {
         this.screen = Toolkit.getDefaultToolkit().getScreenSize();
         width = (int) screen.getWidth();
         height = (int) screen.getHeight();
-        CG.n = n;
-        CG.s = s;
-        CG.r = r;
+        T1.n = n;
+        T1.s = s;
+        T1.r = r;
         this.x0 = x0;
         this.y0 = y0;
-        CG.steps = steps;
-        CG.time = time;
+        T1.steps = steps;
+        T1.time = time;
         points = new ArrayList<>();
         this.setSize(width, height);
         this.setLocationRelativeTo(null);
@@ -73,13 +73,13 @@ public class CG extends Frame
         AffineTransform yUp = new AffineTransform();
         AffineTransform translate = new AffineTransform();
         Bresenham bresenham = new Bresenham(this.x0, this.y0, r);
-        ArrayList<Point> segments;       
+        ArrayList<Point> segments; 
         
         // Tratamento do serrilhamento (Antialiasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         
         clearWindow(g2d);
-        
+               
         // Alteração do plano cartesiano para o convencional
         yUp.setToScale(1,-1);
         translate.setToTranslation(0,540);

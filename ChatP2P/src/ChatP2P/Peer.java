@@ -352,7 +352,7 @@ public class Peer extends javax.swing.JFrame
                 catch (IOException e) 
                 {   e.printStackTrace();
                 }
-                
+               
                 ExecutorService thread = Executors.newCachedThreadPool();
                 thread.execute(new Requests(this.socket, online, this));
                     
