@@ -22,8 +22,8 @@ import java.awt.image.BufferedImage;
  */
 public class T2 extends TimerTask 
 {	
-    private static int n, s, r, height;
-    private int count, index, diffxAnt, diffyAnt, diffx, diffy, x0, y0, width, variation, numberVar;
+    private static int n, s, r, height, x0, y0;
+    private int count, index, diffxAnt, diffyAnt, diffx, diffy, width, variation, numberVar;
     private double steps, alpha, deltaAlpha;
     private static ArrayList<Point> pontos, segments;
     private TriangulatedImage imgs[];
@@ -254,7 +254,7 @@ public class T2 extends TimerTask
             countSection = 0;
             for (int j=0; j<pontos.size(); j++)
             {   if ((count == section && countSection < s) || count == 0)
-                {   segments.add(new Point(pontos.get(j).getX()+prox, height/2 - pontos.get(j).getY()));
+                {   segments.add(new Point(pontos.get(j).getX()+prox, height/2 - y0 - pontos.get(j).getY()));
                     count = 0;
                     countSection++;                    
                 }
@@ -262,7 +262,7 @@ public class T2 extends TimerTask
             }
             prox = prox + 2 * r;
         }
-        segments.add(new Point (pontos.get(0).getX()+prox, height/2 - pontos.get(0).getY()));
+        segments.add(new Point (pontos.get(0).getX()+prox, height/2 - y0 - pontos.get(0).getY()));
     }
     
     /**
@@ -285,14 +285,6 @@ public class T2 extends TimerTask
         }
         
         return count;
-    }
-    
-    public static void main(String[] args) 
-    {   
-        T2 circle = new T2(2, 4, 200, 250, 250, 15);
-        
-        Timer t = new Timer();
-        t.scheduleAtFixedRate(circle, 0, 50);	
     }
     
 }
