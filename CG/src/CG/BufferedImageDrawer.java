@@ -1,13 +1,12 @@
-/**
-* A class for drawing a BufferedImage object. It can be used in 
-* connection with double buffering.
-*/
 package CG;
 
 import java.awt.*;
 import java.awt.image.*;
 
-/*
+/**
+* A class for drawing a BufferedImage object. It can be used in 
+* connection with double buffering.
+*
 * @author Frank Klawonn
 * Last change 27.05.2005
 */
@@ -22,14 +21,16 @@ public class BufferedImageDrawer extends Frame
   //The Graphics2D object used in the paint method.
   private Graphics2D g2d;
 
- 
+  /**
+  * Constructor
+  */
   public BufferedImageDrawer(BufferedImage buffIm, int width, int height)
   {
     bi = buffIm;
     g2dbi = bi.createGraphics();
 
     //Enables the closing of the window.
-    //addWindowListener(new MyFinishWindow());
+    addWindowListener(new MyFinishWindow());
 
     this.setTitle("Double-Buffering");
     this.setSize(width,height);

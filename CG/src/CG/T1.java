@@ -20,7 +20,6 @@ import java.util.Date;
 public class T1 extends Frame
 {   
     private int x0, y0;
-    private Dimension screen;
     private static int n, s, r, steps, time, width, height;
     private static ArrayList<Point> points;
     
@@ -44,7 +43,7 @@ public class T1 extends Frame
      */
     public T1(int n, int s, int r, int x0, int y0, int steps, int time)
     {
-        this.screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         width = (int) screen.getWidth();
         height = (int) screen.getHeight();
         T1.n = n;
@@ -57,7 +56,8 @@ public class T1 extends Frame
         points = new ArrayList<>();
         this.setSize(width, height);
         this.setLocationRelativeTo(null);
-        this.setVisible(true);    
+        this.setVisible(true);
+        addWindowListener(new MyFinishWindow());
     }
     
     /**
