@@ -32,7 +32,7 @@ public class BufferedImageDrawer extends Frame
     //Enables the closing of the window.
     addWindowListener(new MyFinishWindow());
 
-    this.setTitle("Double-Buffering");
+    this.setTitle("Trabalho 2 - Computação Gráfica");
     this.setSize(width,height);
     this.setVisible(true);
 
