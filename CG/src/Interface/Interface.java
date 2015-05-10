@@ -17,6 +17,10 @@ public class Interface extends javax.swing.JFrame
     public Interface() 
     {
         initComponents();
+        
+        buttonGroup1.add(jRadioButton1);
+        buttonGroup1.add(jRadioButton2);
+        buttonGroup1.add(jRadioButton3);
     }
 
     /**
@@ -29,24 +33,17 @@ public class Interface extends javax.swing.JFrame
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Computação Gráfica");
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Computação Gráfica", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
-
-        jCheckBox1.setText("Trabalho 1");
-
-        jCheckBox2.setText("Trabalho 2");
-
-        jCheckBox3.setText("Trabalho 3");
-        jCheckBox3.setEnabled(false);
 
         jButton1.setText("Start");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +52,13 @@ public class Interface extends javax.swing.JFrame
             }
         });
 
+        jRadioButton1.setText("Trabalho 1");
+
+        jRadioButton2.setText("Trabalho 2");
+
+        jRadioButton3.setText("Trabalho 3");
+        jRadioButton3.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -62,25 +66,25 @@ public class Interface extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addGap(63, 63, 63)
+                        .addComponent(jRadioButton2)
+                        .addGap(39, 39, 39)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBox3))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton1))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(jRadioButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox3)
+                .addComponent(jRadioButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -107,14 +111,16 @@ public class Interface extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        if (jCheckBox1.isSelected())
+        
+ 
+        if (jRadioButton1.isSelected())
         {   InterfaceT1 interfaceT1 = new InterfaceT1();
             
             interfaceT1.setVisible(true);
             this.setVisible(false);
         }
         else
-            if (jCheckBox2.isSelected())
+            if (jRadioButton2.isSelected())
             {   InterfaceT2 interfaceT2 = new InterfaceT2();
             
                 interfaceT2.setVisible(true);
@@ -125,11 +131,10 @@ public class Interface extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration//GEN-END:variables
 }

@@ -63,7 +63,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Trabalho 1 - Computa&#xe7;&#xe3;o Gr&#xe1;fica"/>
+    <Property name="title" type="java.lang.String" value="Trabalho 2 - Computa&#xe7;&#xe3;o Gr&#xe1;fica"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>

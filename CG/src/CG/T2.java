@@ -10,7 +10,6 @@ import java.awt.geom.*;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.image.BufferedImage;
 
@@ -63,8 +62,8 @@ public class T2 extends TimerTask
         T2.n = n; 
         T2.s = s;
         T2.r = r;
-        this.x0 = x0;
-        this.y0 = y0;
+        T2.x0 = x0;
+        T2.y0 = y0;
         this.variation = 0;
         this.numberVar = 0;
         
@@ -80,7 +79,7 @@ public class T2 extends TimerTask
         bid.g2dbi.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
         // Cálculo dos pontos
-        Bresenham bresenham = new Bresenham(this.x0, this.y0, T2.r);
+        Bresenham bresenham = new Bresenham(T2.x0, T2.y0, T2.r);
         pontos = bresenham.midPointCircle();
         Collections.sort(pontos);
         removeDuplicate();
@@ -95,14 +94,14 @@ public class T2 extends TimerTask
         pointsOfInterest.add(new Point(175,212)); // Logo acima do centro do emblema da seleção
         pointsOfInterest.add(new Point(50,255)); // Abaixo do símbolo da nike
                                 
-        imgs = new TriangulatedImage[15];    
+        imgs = new TriangulatedImage[s*n+1];    
         Image loadImage;
         
         for (int i=0; i<=s*n; i++) 
         {   imgs[i] = new TriangulatedImage();
-            imgs[i].bi = new BufferedImage(224, 300, 2);
+            imgs[i].bi = new BufferedImage(221, 300, 1);
             Graphics2D g2dImage = imgs[i].bi.createGraphics();
-            loadImage = new javax.swing.ImageIcon(("image" + i + ".png")).getImage();
+            loadImage = new javax.swing.ImageIcon(("image" + i + ".jpg")).getImage();
             
             g2dImage.drawImage(loadImage, 0, 0, null);
 
@@ -112,10 +111,10 @@ public class T2 extends TimerTask
             imgs[i].tPoints[0] = new Point2D.Double(0, 0);
             imgs[i].tPoints[1] = new Point2D.Double(0, 180);
             imgs[i].tPoints[2] = new Point2D.Double(0, 300);
-            imgs[i].tPoints[3] = new Point2D.Double(224, 0);
-            imgs[i].tPoints[4] = new Point2D.Double(224, 150);
-            imgs[i].tPoints[5] = new Point2D.Double(224, 300);
-            imgs[i].tPoints[6] = new Point2D.Double(112, 300);
+            imgs[i].tPoints[3] = new Point2D.Double(221, 0);
+            imgs[i].tPoints[4] = new Point2D.Double(221, 150);
+            imgs[i].tPoints[5] = new Point2D.Double(221, 300);
+            imgs[i].tPoints[6] = new Point2D.Double(110, 300);
             imgs[i].tPoints[7] = new Point2D.Double(pointsOfInterest.get(0).getX()+variation,pointsOfInterest.get(0).getY());
             imgs[i].tPoints[8] = new Point2D.Double(pointsOfInterest.get(1).getX()+variation,pointsOfInterest.get(1).getY());
             imgs[i].tPoints[9] = new Point2D.Double(pointsOfInterest.get(2).getX()+variation,pointsOfInterest.get(2).getY());
@@ -188,10 +187,10 @@ public class T2 extends TimerTask
             // Responsável por variar a trinagularização
             switch(numberVar)
             {   case 0:
-                    this.variation = +15;
+                    this.variation = +20;
                     break;
                 case 1:
-                    this.variation = +30;
+                    this.variation = -20;
                     break;
                 case 2:
                     this.variation = 0;
@@ -211,7 +210,7 @@ public class T2 extends TimerTask
     {   
         if (this.count <= n*s-1)
         {   for (int j = 0; j < steps; j++)
-            {   this.alpha = alpha + deltaAlpha;
+            {   alpha = alpha + deltaAlpha;
                 diffxAnt = diffx;
                 diffyAnt = diffy;
                 diffx = (int) ((1 - j/steps) * segments.get(index).getX()) + (int)((j/steps) * segments.get(index + 1).getX());
@@ -221,7 +220,7 @@ public class T2 extends TimerTask
                 bid.g2dbi.drawImage(backGround, diffxAnt, diffyAnt, null);			
                 bid.g2dbi.drawImage(mix, diffx, diffy, null);
                 bid.repaint();
-                sustain(10);
+                sustain(20);
             }
             alpha = 0;
             count++;
@@ -254,7 +253,7 @@ public class T2 extends TimerTask
             countSection = 0;
             for (int j=0; j<pontos.size(); j++)
             {   if ((count == section && countSection < s) || count == 0)
-                {   segments.add(new Point(pontos.get(j).getX()+prox, height/2 - y0 - pontos.get(j).getY()));
+                {   segments.add(new Point(pontos.get(j).getX()+prox, height/2 -  pontos.get(j).getY()));
                     count = 0;
                     countSection++;                    
                 }
@@ -262,7 +261,7 @@ public class T2 extends TimerTask
             }
             prox = prox + 2 * r;
         }
-        segments.add(new Point (pontos.get(0).getX()+prox, height/2 - y0 - pontos.get(0).getY()));
+        segments.add(new Point (pontos.get(0).getX()+prox, height/2 -  pontos.get(0).getY()));
     }
     
     /**

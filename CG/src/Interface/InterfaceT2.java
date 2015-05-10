@@ -61,7 +61,7 @@ public class InterfaceT2 extends javax.swing.JFrame
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Trabalho 1 - Computação Gráfica");
+        setTitle("Trabalho 2 - Computação Gráfica");
         setResizable(false);
         getContentPane().setLayout(null);
 
