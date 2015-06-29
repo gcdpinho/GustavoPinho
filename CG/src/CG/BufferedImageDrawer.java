@@ -1,56 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package CG;
 
 import java.awt.*;
 import java.awt.image.*;
 
 /**
-* A class for drawing a BufferedImage object. It can be used in 
-* connection with double buffering.
+* Classe responsável criar o frame e imprimir a imagem bufferizada.
 *
 * @author Frank Klawonn
-* Last change 27.05.2005
+* 
+* @version gustavopinho
 */
 public class BufferedImageDrawer extends Frame
 {
-  //These image is drawn when the paint method is called.
-  public BufferedImage bi;
+    public BufferedImage bi;
+    public Graphics2D g2dbi;
+    private Graphics2D g2d;
 
-  //This Graphics2D object can be used to draw on bi.
-  public Graphics2D g2dbi;
+    /**
+     * Método construtor.
+     * 
+     * @param bi BufferedImage - Corresponde à imagem a ser printada.
+     * 
+     * @param width int - Corresponde à largura do frame.
+     * 
+     * @param height int - Corresponde à altura do frame.
+     */
+    public BufferedImageDrawer(BufferedImage bi, int width, int height)
+    {
+        this.bi = bi;
+        g2dbi = this.bi.createGraphics();
+        addWindowListener(new MyFinishWindow());
 
-  //The Graphics2D object used in the paint method.
-  private Graphics2D g2d;
-
-  /**
-  * Constructor
-  */
-  public BufferedImageDrawer(BufferedImage buffIm, int width, int height)
-  {
-    bi = buffIm;
-    g2dbi = bi.createGraphics();
-
-    //Enables the closing of the window.
-    addWindowListener(new MyFinishWindow());
-
-    this.setTitle("Trabalho 2 - Computação Gráfica");
-    this.setSize(width,height);
-    this.setVisible(true);
-
-  }
-
-
-  public void paint(Graphics g)
-  {
-    update(g);
-  }
-
-
-  public void update(Graphics g)
-  {
-    g2d = (Graphics2D) g;
-    g2d.drawImage(bi,0,0,null);
-  }
-
+        this.setTitle("Trabalho 2 - Computação Gráfica");
+        this.setSize(width,height);
+        this.setVisible(true);
+    }
+    
+    /**
+     * Método reponsável por chamar o update e printar na tela.
+     * 
+     * @param g Graphics - Corresponde à biblioteca que contém as utilidades
+     * gráficas necessárias.
+     */
+    @Override
+    public void paint(Graphics g)
+    {
+       update(g);
+    }
+    
+    /**
+     * Método responsável por printar na tela.
+     * 
+     * @param g Graphics - Corresponde à biblioteca que contém as utilidades
+     * gráficas necessárias.
+     */
+    @Override
+    public void update(Graphics g)
+    {
+        g2d = (Graphics2D) g;
+        g2d.drawImage(bi,0,0,null);
+    }
 
 }
 

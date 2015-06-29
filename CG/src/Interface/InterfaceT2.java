@@ -26,8 +26,8 @@ public class InterfaceT2 extends javax.swing.JFrame
     public InterfaceT2() 
     {   
         initComponents();
-        this.steps = 15;
-        this.s = "4";
+        
+        this.steps = 20;
         this.time = 50;
     }
     
@@ -51,12 +51,13 @@ public class InterfaceT2 extends javax.swing.JFrame
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jFormattedTextField6 = new javax.swing.JFormattedTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
@@ -82,7 +83,7 @@ public class InterfaceT2 extends javax.swing.JFrame
         jFormattedTextField5.setBounds(60, 80, 60, 20);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 150, 140, 120);
+        jPanel1.setBounds(20, 170, 140, 120);
 
         jLabel2.setText("Raio:");
         getContentPane().add(jLabel2);
@@ -90,11 +91,11 @@ public class InterfaceT2 extends javax.swing.JFrame
 
         jLabel4.setText("Repetição:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 100, 90, 17);
+        jLabel4.setBounds(20, 140, 90, 17);
         getContentPane().add(jFormattedTextField1);
         jFormattedTextField1.setBounds(210, 60, 100, 20);
         getContentPane().add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(210, 100, 100, 20);
+        jFormattedTextField3.setBounds(210, 140, 100, 20);
 
         jButton1.setText("Start");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +104,17 @@ public class InterfaceT2 extends javax.swing.JFrame
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(210, 200, 90, 29);
+        jButton1.setBounds(210, 220, 90, 29);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TítuloT2.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 7, 260, 30);
+
+        jLabel1.setText("Segmentação:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 100, 120, 17);
+        getContentPane().add(jFormattedTextField6);
+        jFormattedTextField6.setBounds(210, 100, 100, 20);
 
         jMenu1.setText("File");
 
@@ -131,14 +138,6 @@ public class InterfaceT2 extends javax.swing.JFrame
         });
         jMenu2.add(jMenuItem2);
 
-        jMenuItem3.setText("Segments");
-        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem3MousePressed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
         jMenuItem4.setText("Delay");
         jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -159,7 +158,7 @@ public class InterfaceT2 extends javax.swing.JFrame
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(332, 328));
+        setSize(new java.awt.Dimension(332, 357));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,6 +174,7 @@ public class InterfaceT2 extends javax.swing.JFrame
         jFormattedTextField3.setText(null);
         jFormattedTextField4.setText(null);
         jFormattedTextField5.setText(null);
+        jFormattedTextField6.setText(null);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
     
     /**
@@ -189,6 +189,7 @@ public class InterfaceT2 extends javax.swing.JFrame
         n = jFormattedTextField3.getText();
         x0 = jFormattedTextField4.getText();
         y0 = jFormattedTextField5.getText();
+        s = jFormattedTextField6.getText();
         
         try
         {   T2 t2 = new T2 (Integer.parseInt(n), Integer.parseInt(s), Integer.parseInt(r), Integer.parseInt(x0), Integer.parseInt(y0), steps); 
@@ -231,25 +232,6 @@ public class InterfaceT2 extends javax.swing.JFrame
             }
     }//GEN-LAST:event_jMenuItem2MousePressed
     
-    /**
-     * Método responsável por ler o tempo do sustain.
-     * 
-     * @param evt java.awt.event.MouseEvent - Corresponde ao clique do mouse.
-     */
-    private void jMenuItem3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MousePressed
-       
-        boolean error = true;
-        
-        while (error)    
-            try
-            {   s = JOptionPane.showInputDialog("Digite o número de segmentos:");
-                error = false;
-            } 
-            catch (NumberFormatException e)
-            {   JOptionPane.showMessageDialog(null, "Digite um número inteiro!", "Error", JOptionPane.ERROR_MESSAGE); 
-            }
-    }//GEN-LAST:event_jMenuItem3MousePressed
-
     private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
         
         boolean error = true;
@@ -270,6 +252,8 @@ public class InterfaceT2 extends javax.swing.JFrame
     private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JFormattedTextField jFormattedTextField5;
+    private javax.swing.JFormattedTextField jFormattedTextField6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -281,7 +265,6 @@ public class InterfaceT2 extends javax.swing.JFrame
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
